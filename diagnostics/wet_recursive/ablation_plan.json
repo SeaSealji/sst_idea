@@ -1,0 +1,35 @@
+{
+  "status": "blocked_before_training",
+  "purpose": "preregistered design only; not executable training configuration",
+  "protocol": "active ocean2_global_v1; SST-only 7-to-7; T1-no-expert",
+  "primary_metric": "unchanged uniform wet-grid pooled RMSE",
+  "secondary_metric": "separately reported area-weighted RMSE",
+  "baseline": "preserve current best; do not mix old regional T1-Fused scores",
+  "factorial_arms": [
+    {"id": "U-A", "sharing": false, "geometry": "ordinary area pooling"},
+    {"id": "S-A", "sharing": true, "geometry": "ordinary area pooling"},
+    {"id": "U-W", "sharing": false, "geometry": "connected induced-subgraph aggregates"},
+    {"id": "S-W", "sharing": true, "geometry": "connected induced-subgraph aggregates"}
+  ],
+  "consistency": {"initial": "off", "later_toggle": "background area means only; independent from 2x2 study"},
+  "paired_seeds": [42, 43, 44],
+  "controls_required": [
+    "original current baseline",
+    "same-width shared/unshared isolates weight tying with capacity difference disclosed",
+    "separate effective-parameter-matched and compute-matched controls; not dummy parameters",
+    "same receptive field, feature width interfaces, raw-history anchor, single seven-lead head",
+    "same training windows, update budget, optimizer and checkpoint selection"
+  ],
+  "entry_gates_pending": [
+    "forecast-error exposure at unsafe coastal aggregates using compliant training residuals",
+    "audited core/halo/polar topology integration without changing frozen protocol",
+    "full-model forward/backward and upstream/downstream support audit",
+    "effective parameter and FLOP budgets for all controls",
+    "independent selected-checkpoint reload and metric replay"
+  ],
+  "analysis": ["D1-D7", "D5-D7", "spring", "coastal/offshore", "time-block uncertainty", "front smoothing"],
+  "screening": "predeclare effect threshold before training; no validation-driven threshold choice",
+  "sealed_test_access": false,
+  "gpu_jobs_launched": 0,
+  "automatic_seed_expansion": false
+}
