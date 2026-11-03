@@ -1,0 +1,33 @@
+{
+  "status": "blocked_before_training",
+  "scope": "CPU geometry and synthetic interface only; not a runnable training queue",
+  "protocol": "active ocean2_global_v1 SST-only 7-to-7 T1-no-expert",
+  "primary_metric": "uniform wet-grid pooled RMSE, unchanged",
+  "secondary_metric": "separate area-weighted RMSE",
+  "implemented_rank_controls": ["geometry", "degree", "index"],
+  "rank_control_learning_parameters_width32": 2145,
+  "capacity_and_compute_matched": false,
+  "required_controls": [
+    "retain frozen current baseline and best checkpoint",
+    "PR23 bin-connected area D/U versus sphere representatives with the same learned context",
+    "degree versus geometry versus index with paired learned initialization",
+    "shared versus unshared at fixed geometry, disclose width and effective parameters",
+    "separate parameter-matched and measured-compute-matched contexts using only active parameters",
+    "same compression/node-edge budgets or explicitly report mismatch; do not silently delete edges or change support",
+    "ordinary multiscale CNN context with matched effective capacity and receptive-field/budget accounting"
+  ],
+  "pending_gates": [
+    "training-period residual/front relevance, separate latitude/coast-degree and front effects",
+    "unchanged active halo/missing-value protocol and physical core/alias geometry audit",
+    "narrow strait/long wet-detour compression distortion at every level",
+    "GPU/AMP peak-memory, forward/backward/optimizer cost and inference latency",
+    "checkpoint optimizer/RNG fresh-process replay and metric replay",
+    "historical features only if testing adaptive refinement; no future targets or validation-selected geometry"
+  ],
+  "paired_seeds_planned": [42, 123, 2024],
+  "automatic_seed_expansion": false,
+  "analysis": ["D1-D7", "D5-D7", "spring", "coastal/offshore", "fronts", "latitude", "time-block uncertainty"],
+  "claims_disallowed": ["first multiscale graph generator", "static geometry detects SST fronts", "graph contraction preserves all topology", "whole T1 cannot cross land", "energy or heat conservation", "geometry Z0 proves skill"],
+  "gpu_jobs_launched": 0,
+  "sealed_test_access": false
+}
