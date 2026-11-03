@@ -1,0 +1,81 @@
+{
+  "status": "Z0_passed_training_blocked_on_gates",
+  "hypothesis": "Independent coarse forecast plus explicitly zero-mean local detail can help SST D1-D7 beyond ordinary feature fusion when training residuals justify that separation",
+  "protocol": "ocean2_global_v1",
+  "baseline": "t1_no_expert_v1",
+  "seeds_planned": [
+    42,
+    123,
+    2026
+  ],
+  "seed_status": "not_started",
+  "controls": [
+    {
+      "id": "B",
+      "method": "unchanged active baseline",
+      "purpose": "preserve selected best model and frozen protocol"
+    },
+    {
+      "id": "LC",
+      "method": "linear feature concat versus two linear heads and sum",
+      "purpose": "exact algebra control already CPU verified; no new expressivity expected"
+    },
+    {
+      "id": "S",
+      "method": "independent nonlinear fine/coarse representations with fixed output sum",
+      "purpose": "representation and capacity control"
+    },
+    {
+      "id": "P",
+      "method": "same representations/parameters with coarse plus zero-mean detail projection",
+      "purpose": "isolate constraint from independent representation"
+    },
+    {
+      "id": "F",
+      "method": "same feature taps with matched nonlinear feature concat",
+      "purpose": "separate output fusion from feature fusion"
+    },
+    {
+      "id": "C",
+      "method": "matched effective parameter/FLOP budget baseline head",
+      "purpose": "capacity/cost control; exact construction pending integration"
+    },
+    {
+      "id": "PS",
+      "method": "P with explicit coarse residual supervision",
+      "purpose": "isolate auxiliary supervision; compare same targets/loss budget"
+    }
+  ],
+  "gates_before_training": [
+    "Training-only rolling-origin residual analysis identifies per-lead coarse/detail error worth addressing; no validation-based architecture search",
+    "Confirm global scalar sigma and coarse residual units; scalar sigma commutes with D/U. Re-audit if future normalization becomes spatially varying; include anchor and target climatology for full fields",
+    "Audit static mask/missing/calendar provenance and frozen scorer; stop on leakage or metric errors",
+    "Define legitimate original-context to wet-node adapter and halo/topology treatment; pooled fused-feature harness alone is insufficient",
+    "Verify independent branch semantics, all effective gradients, no-grad and optimizer replay, GPU/AMP stability",
+    "Measure effective parameter counts, FLOPs, memory, training budget and matched concat controls",
+    "Freeze paired seeds, splits, selection windows, optimizer and evaluator; serialize behind one GPU training lock"
+  ],
+  "frozen_evaluation_plan": {
+    "training": "1981-09 through 2011; fixed 1116 windows",
+    "validation": "2012-2017 full 2114 windows; fixed val512 checkpoint selection",
+    "primary": "uniform wet-grid pooled RMSE in Celsius",
+    "secondary": "area weighted RMSE reported separately",
+    "slices": [
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "D5",
+      "D6",
+      "D7",
+      "spring",
+      "coastal",
+      "offshore"
+    ],
+    "statistics": "paired per-seed and per-lead deltas; paired temporal-block uncertainty on stored validation predictions; no converged ranking from partial budgets",
+    "tests": "automatic sealed-test reads forbidden; historical exposure disclosed",
+    "attribution_limit": "SSE orthogonality only in matching coordinates/weights over complete aggregates; no guaranteed coastal-subset identity"
+  },
+  "no_training_enqueued": true,
+  "no_best_model_replacement": true
+}
