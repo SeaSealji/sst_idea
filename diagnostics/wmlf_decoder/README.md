@@ -20,7 +20,9 @@ With the same area weights and complete declared aggregates, weighted squared er
 
 ## Units are part of the hypothesis
 
-The active SST model uses per-grid normalization. A projected normalized residual r can satisfy Dr=c while D(σr)≠σc when σ varies within a bin. For two equally weighted cells, r=[1,−1], c=0, σ=[1,3] gives Dr=0 but D(σr)=−1. A Celsius-consistent method must explicitly define its coordinate transform and coarse units; neither projection here nor STORM's output sum establishes heat conservation. Do not replace the frozen primary metric with an area-weighted score.
+Correction (2026-11-03): the active protocol uses a grid-cell/day-of-year climatology and a **global scalar** σ_train=0.7119533415268037 °C, as verified in the frozen protocol and cache window metadata. The earlier wording incorrectly called σ per-grid. For this scalar normalization, D(σr)=σDr, so normalized residual consistency transfers exactly to Celsius residual consistency; a coarse head predicting c in normalized units represents σc in Celsius. Full-field consistency also includes the once-added anchor and target-day climatology. This is an algebraic unit statement, not physical heat conservation.
+
+The retained synthetic counterexample applies only to a possible future spatially varying σ: two equal-area cells with r=[1,−1], c=0, σ=[1,3] give Dr=0 but D(σr)=−1. It is not a diagnosed defect in the current SST protocol. Any future local-normalization revision must define coarse units explicitly. STORM output summation still does not impose a coarse/detail projection. Keep uniform wet-grid RMSE primary and area-weighted scores separate.
 
 ## Related work and evidence boundaries
 

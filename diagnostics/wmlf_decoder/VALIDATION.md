@@ -28,3 +28,5 @@ Protocol identity was rechecked against the active registry before the harness:
 - Model source SHA256: `3bfc23769d103712f6dcacf321e76e6ab587918950451cc8f6004baa92c4887c`
 
 No D1–D7, spring, coastal or offshore performance result exists for this candidate. These numerical tolerances are structural checks, not forecasting scores. Historical test exposure must not be described as a new untouched test; this run read no test values. Current best models and previous negative results remain retained.
+
+Correction (2026-11-03): the active protocol and frozen cache use global scalar σ=0.7119533415268037 °C, not per-grid σ. Grid-cell/day-of-year climatology is spatially varying. Scalar σ commutes with D/U; the spatially varying σ counterexample is a conditional future-protocol test, not evidence of a current unit inconsistency. Code and numerical validation are unchanged.
