@@ -1,0 +1,33 @@
+{
+  "status": "blocked_before_training",
+  "scope": "design and CPU mechanism controls, not a runnable training queue",
+  "protocol": "active ocean2_global_v1, SST-only 7-to-7, T1-no-expert",
+  "primary_metric": "unchanged uniform wet-grid pooled RMSE",
+  "secondary_metric": "separate area-weighted RMSE",
+  "placement": "after existing fusion, before single seven-lead head; raw anchor preserved",
+  "implemented_controls": [
+    {"id": "W-ORTH", "projection": true, "parameters_width32": 2114},
+    {"id": "NO-PROJ", "projection": false, "parameters_width32": 2114},
+    {"id": "FIXED-NORMAL", "projection": "fixed_normal", "parameters_width32": 2114}
+  ],
+  "additional_controls_required": [
+    "unchanged current baseline with best checkpoint retained",
+    "ordinary residual with matched effective capacity and global pooled information",
+    "energy-only and tangent-only with disabled parameters excluded from effective counts",
+    "same seeded state_dict for paired mechanisms; fixed normal buffer seed0",
+    "measure second-order training FLOPs, peak memory, inference gradient cost, optimizer updates",
+    "fixed candidate step chosen before validation comparison; log finite-step energy increases"
+  ],
+  "pending_gates": [
+    "compliant training-period residual/front exposure and relevance of latent amplitude shrinkage",
+    "production CPU/GPU/AMP precision and memory audit in full model",
+    "whole-model geometry support and unchanged frozen halo/missing-value protocol",
+    "fresh-process checkpoint and metric replay before formal training"
+  ],
+  "paired_seeds": [42, 123, 2024],
+  "automatic_seed_expansion": false,
+  "analysis": ["D1-D7", "D5-D7", "spring", "coastal/offshore", "front metrics", "time-block uncertainty"],
+  "claims_disallowed": ["finite-step energy always decreases", "energy is physical heat", "energy decrease proves skill", "current full T1 is cross-land isolated"],
+  "gpu_tasks_launched": 0,
+  "sealed_test_access": false
+}
